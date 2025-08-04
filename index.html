@@ -297,111 +297,111 @@
     </footer>
 
     <script>
-        // Initialize EmailJS (replace with your actual credentials)
-        (function(){
-            emailjs.init("o1OnIRa-52uOXw_Pp"); // Replace with your EmailJS user ID
-        })();
+        // Adicionado para esperar a página carregar completamente
+        document.addEventListener('DOMContentLoaded', function() {
 
-        // CPF Mask
-        new Cleave('#cpf', {
-            numericOnly: true,
-            blocks: [3, 3, 3, 2],
-            delimiters: ['.', '.', '-']
-        });
+            // Initialize EmailJS
+            (function(){
+                emailjs.init("o1OnIRa-52uOXw_Pp");
+            })();
+document.addEventListener('DOMContentLoaded', function () {
+    // CPF Mask
+    new Cleave('#cpf', {
+        numericOnly: true,
+        blocks: [3, 3, 3, 2],
+        delimiters: ['.', '.', '-']
+    });
 
-        // Phone Mask (Brazilian format)
-        new Cleave('#phone', {
-            phone: true,
-            phoneRegionCode: 'BR'
-        });
+    // Phone Mask (Brazilian format)
+    new Cleave('#phone', {
+        phone: true,
+        phoneRegionCode: 'BR'
+    });
+});
 
-        // Custom Select Functionality
-        function toggleSelect() {
-            const selectItems = document.querySelector('.select-items');
-            const selectSelected = document.querySelector('.select-selected');
-            
-            selectItems.classList.toggle('select-hide');
-            selectSelected.classList.toggle('select-arrow-active');
-        }
 
-        function selectOption(element, value) {
-            const select = document.getElementById('amount');
-            const selectSelected = document.querySelector('.select-selected');
-            
-            // Remove 'same-as-selected' class from all options
-            const options = document.querySelectorAll('.select-items div');
-            options.forEach(opt => {
-                opt.classList.remove('same-as-selected');
-            });
-            
-            // Add class to selected option
-            element.classList.add('same-as-selected');
-            
-            // Update display
-            selectSelected.innerHTML = value;
-            select.value = value;
-            
-            // Hide dropdown
-            document.querySelector('.select-items').classList.add('select-hide');
-            selectSelected.classList.remove('select-arrow-active');
-        }
+            // Custom Select Functionality
+            function toggleSelect() {
+                const selectItems = document.querySelector('.select-items');
+                const selectSelected = document.querySelector('.select-selected');
+                selectItems.classList.toggle('select-hide');
+                selectSelected.classList.toggle('select-arrow-active');
+            }
 
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function(event) {
-            const selectContainer = document.querySelector('.custom-select');
-            if (!selectContainer.contains(event.target)) {
-                document.querySelector('.select-items').classList.add('select-hide');
-                document.querySelector('.select-selected').classList.remove('select-arrow-active');
-            }
-        });
+            function selectOption(element, value) {
+                const select = document.getElementById('amount');
+                const selectSelected = document.querySelector('.select-selected');
+                const options = document.querySelectorAll('.select-items div');
+                options.forEach(opt => {
+                    opt.classList.remove('same-as-selected');
+                });
+                element.classList.add('same-as-selected');
+                selectSelected.innerHTML = value;
+                select.value = value;
+                document.querySelector('.select-items').classList.add('select-hide');
+                selectSelected.classList.remove('select-arrow-active');
+            }
 
-        // FAQ Toggle
-        function toggleFAQ(id) {
-            const content = document.getElementById(`faq-content-${id}`);
-            const icon = document.getElementById(`faq-icon-${id}`);
-            
-            content.classList.toggle('hidden');
-            icon.classList.toggle('rotate-180');
-        }
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(event) {
+                const selectContainer = document.querySelector('.custom-select');
+                if (selectContainer && !selectContainer.contains(event.target)) {
+                    document.querySelector('.select-items').classList.add('select-hide');
+                    document.querySelector('.select-selected').classList.remove('select-arrow-active');
+                }
+            });
 
-        // Form Submission
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Replace with your EmailJS service ID and template ID
-            emailjs.sendForm('service_h0g45jn', 'template_mkebgyu', this)
-                .then(function() {
-                    Swal.fire({
-                        title: 'Sucesso!',
-                        text: 'Sua solicitação foi enviada com sucesso. Entraremos em contato em breve.',
-                        icon: 'success',
-                        confirmButtonColor: '#F26322',
-                        confirmButtonText: 'OK'
-                    });
-                    document.getElementById('contact-form').reset();
-                    document.querySelector('.select-selected').innerHTML = 'Selecione um valor';
-                }, function(error) {
-                    Swal.fire({
-                        title: 'Erro!',
-                        text: 'Ocorreu um erro ao enviar sua solicitação. Por favor, tente novamente mais tarde.',
-                        icon: 'error',
-                        confirmButtonColor: '#F26322',
-                        confirmButtonText: 'OK'
-                    });
-                    console.log('FAILED...', error);
-                });
-        });
+            // FAQ Toggle
+            function toggleFAQ(id) {
+                const content = document.getElementById(`faq-content-${id}`);
+                const icon = document.getElementById(`faq-icon-${id}`);
+                content.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+            }
+            
+            // Adicionando as funções de select e FAQ ao escopo global para que o onclick do HTML funcione
+            window.toggleSelect = toggleSelect;
+            window.selectOption = selectOption;
+            window.toggleFAQ = toggleFAQ;
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
+            // Form Submission
+            document.getElementById('contact-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                emailjs.sendForm('service_h0g45jn', 'template_mkebgyu', this)
+                    .then(function() {
+                        Swal.fire({
+                            title: 'Sucesso!',
+                            text: 'Sua solicitação foi enviada com sucesso. Entraremos em contato em breve.',
+                            icon: 'success',
+                            confirmButtonColor: '#F26322',
+                            confirmButtonText: 'OK'
+                        });
+                        document.getElementById('contact-form').reset();
+                        document.querySelector('.select-selected').innerHTML = 'Selecione um valor';
+                    }, function(error) {
+                        Swal.fire({
+                            title: 'Erro!',
+                            text: 'Ocorreu um erro ao enviar sua solicitação. Por favor, tente novamente mais tarde.',
+                            icon: 'error',
+                            confirmButtonColor: '#F26322',
+                            confirmButtonText: 'OK'
+                        });
+                        console.log('FAILED...', error);
+                    });
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+        }); // Fecha o 'DOMContentLoaded'
+    </script>
 </body>
 </html>
