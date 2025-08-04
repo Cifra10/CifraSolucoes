@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+
+
+</html><!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -307,112 +309,108 @@
         </div>
     </footer>
 
-    <script>
-        // Adicionado para esperar a página carregar completamente
-        document.addEventListener('DOMContentLoaded', function() {
-
-            // Initialize EmailJS
-            (function(){
-                emailjs.init("o1OnIRa-52uOXw_Pp");
-            })();
+<script>
 document.addEventListener('DOMContentLoaded', function () {
-    // CPF Mask
+    // Máscara para CPF
     new Cleave('#cpf', {
-        numericOnly: true,
+        delimiters: ['.', '.', '-'],
         blocks: [3, 3, 3, 2],
-        delimiters: ['.', '.', '-']
+        numericOnly: true
     });
 
-    // Phone Mask (Brazilian format)
+    // Máscara para Telefone
     new Cleave('#phone', {
         phone: true,
         phoneRegionCode: 'BR'
     });
+
+    // Lógica de envio do formulário
+    document.getElementById('contact-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const cpfValue = document.getElementById('cpf').value;
+        const phoneValue = document.getElementById('phone').value;
+
+        const cpfPattern = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
+        const phonePattern = /^\d{10,11}$/;
+
+        if (!cpfPattern.test(cpfValue)) {
+            Swal.fire({
+                title: 'Erro!',
+                text: 'Por favor, digite um CPF válido no formato 000.000.000-00.',
+                icon: 'error',
+                confirmButtonColor: '#F26322'
+            });
+            return;
+        }
+
+        const numericPhone = phoneValue.replace(/\D/g, '');
+        if (!phonePattern.test(numericPhone)) {
+            Swal.fire({
+                title: 'Erro!',
+                text: 'Digite um número de telefone válido com DDD.',
+                icon: 'error',
+                confirmButtonColor: '#F26322'
+            });
+            return;
+        }
+
+        emailjs.sendForm('service_h0g45jn', 'template_mkebgyu', this)
+            .then(function () {
+                window.location.href = "/obrigado.html";
+            }, function (error) {
+                Swal.fire({
+                    title: 'Erro!',
+                    text: 'Ocorreu um erro ao enviar sua solicitação. Por favor, tente novamente mais tarde.',
+                    icon: 'error',
+                    confirmButtonColor: '#F26322'
+                });
+                console.error('Erro ao enviar:', error);
+            });
+    });
+
+    // Outras funções existentes...
+    window.toggleSelect = function () {
+        const selectItems = document.querySelector('.select-items');
+        const selectSelected = document.querySelector('.select-selected');
+        selectItems.classList.toggle('select-hide');
+        selectSelected.classList.toggle('select-arrow-active');
+    };
+
+    window.selectOption = function (element, value) {
+        const select = document.getElementById('amount');
+        const selectSelected = document.querySelector('.select-selected');
+        const options = document.querySelectorAll('.select-items div');
+        options.forEach(opt => opt.classList.remove('same-as-selected'));
+        element.classList.add('same-as-selected');
+        selectSelected.innerHTML = value;
+        select.value = value;
+        document.querySelector('.select-items').classList.add('select-hide');
+        selectSelected.classList.remove('select-arrow-active');
+    };
+
+    window.toggleFAQ = function (id) {
+        const content = document.getElementById(`faq-content-${id}`);
+        const icon = document.getElementById(`faq-icon-${id}`);
+        content.classList.toggle('hidden');
+        icon.classList.toggle('rotate-180');
+    };
+
+    document.addEventListener('click', function (event) {
+        const selectContainer = document.querySelector('.custom-select');
+        if (selectContainer && !selectContainer.contains(event.target)) {
+            document.querySelector('.select-items').classList.add('select-hide');
+            document.querySelector('.select-selected').classList.remove('select-arrow-active');
+        }
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+        });
+    });
 });
-
-
-            // Custom Select Functionality
-            function toggleSelect() {
-                const selectItems = document.querySelector('.select-items');
-                const selectSelected = document.querySelector('.select-selected');
-                selectItems.classList.toggle('select-hide');
-                selectSelected.classList.toggle('select-arrow-active');
-            }
-
-            function selectOption(element, value) {
-                const select = document.getElementById('amount');
-                const selectSelected = document.querySelector('.select-selected');
-                const options = document.querySelectorAll('.select-items div');
-                options.forEach(opt => {
-                    opt.classList.remove('same-as-selected');
-                });
-                element.classList.add('same-as-selected');
-                selectSelected.innerHTML = value;
-                select.value = value;
-                document.querySelector('.select-items').classList.add('select-hide');
-                selectSelected.classList.remove('select-arrow-active');
-            }
-
-            // Close dropdown when clicking outside
-            document.addEventListener('click', function(event) {
-                const selectContainer = document.querySelector('.custom-select');
-                if (selectContainer && !selectContainer.contains(event.target)) {
-                    document.querySelector('.select-items').classList.add('select-hide');
-                    document.querySelector('.select-selected').classList.remove('select-arrow-active');
-                }
-            });
-
-            // FAQ Toggle
-            function toggleFAQ(id) {
-                const content = document.getElementById(`faq-content-${id}`);
-                const icon = document.getElementById(`faq-icon-${id}`);
-                content.classList.toggle('hidden');
-                icon.classList.toggle('rotate-180');
-            }
-            
-            // Adicionando as funções de select e FAQ ao escopo global para que o onclick do HTML funcione
-            window.toggleSelect = toggleSelect;
-            window.selectOption = selectOption;
-            window.toggleFAQ = toggleFAQ;
-
-            // Form Submission
-            document.getElementById('contact-form').addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                emailjs.sendForm('service_h0g45jn', 'template_mkebgyu', this)
-                    .then(function() {
-                        Swal.fire({
-                            title: 'Sucesso!',
-                            text: 'Sua solicitação foi enviada com sucesso. Entraremos em contato em breve.',
-                            icon: 'success',
-                            confirmButtonColor: '#F26322',
-                            confirmButtonText: 'OK'
-                        });
-                        document.getElementById('contact-form').reset();
-                        document.querySelector('.select-selected').innerHTML = 'Selecione um valor';
-                    }, function(error) {
-                        Swal.fire({
-                            title: 'Erro!',
-                            text: 'Ocorreu um erro ao enviar sua solicitação. Por favor, tente novamente mais tarde.',
-                            icon: 'error',
-                            confirmButtonColor: '#F26322',
-                            confirmButtonText: 'OK'
-                        });
-                        console.log('FAILED...', error);
-                    });
-            });
-
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-
-        }); // Fecha o 'DOMContentLoaded'
-    </script>
+</script>
 </body>
 </html>
