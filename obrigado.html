@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obrigado! | Cadastro Recebido</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Define as variáveis de cor com base na sua identidade visual */
+        :root {
+            --primary-orange: #F26322;
+            --dark-text: #333333;
+            --light-text: #555555;
+            --background-color: #FFFFFF;
+            --border-color: #EAEAEA;
+        }
+
+        /* Estilos gerais */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background-color: var(--background-color);
+            color: var(--dark-text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+        }
+
+        /* Ícone de sucesso (check) */
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            border: 3px solid var(--primary-orange);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeInScale 0.6s ease-out;
+        }
+
+        .success-icon svg {
+            width: 40px;
+            height: 40px;
+            stroke: var(--primary-orange);
+            stroke-width: 5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        
+        /* Animação do ícone */
+        @keyframes fadeInScale {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Textos */
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--dark-text);
+            margin: 0 0 15px 0;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: var(--light-text);
+            line-height: 1.6;
+            margin: 0 0 30px 0;
+        }
+
+        /* Botão */
+        .btn-home {
+            display: inline-block;
+            background-color: var(--primary-orange);
+            color: #FFFFFF;
+            padding: 14px 28px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn-home:hover {
+            background-color: #d95315; /* Um tom de laranja mais escuro para o hover */
+            transform: translateY(-2px);
+        }
+        
+        /* Mensagem de redirecionamento */
+        .redirect-message {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+    </style>
+</head>
+<body>
+
+    <main class="container">
+        <div class="success-icon">
+            <svg viewBox="0 0 52 52">
+                <path fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+            </svg>
+        </div>
+
+        <h1>Cadastro recebido com sucesso!</h1>
+        <p>
+            Agradecemos por seu interesse. Nossas equipes já receberam suas informações e em breve um de nossos especialistas entrará em contato com você.
+        </p>
+        
+        <a href="/" class="btn-home">Voltar para o Início</a>
+
+        <div class="redirect-message">
+            Você será redirecionado em <span id="countdown">7</span> segundos.
+        </div>
+    </main>
+
+    <script>
+        (function() {
+            let seconds = 7; // Tempo em segundos para o redirecionamento
+            const countdownElement = document.getElementById('countdown');
+            const homeUrl = '/'; // URL da página inicial do seu site
+
+            const interval = setInterval(() => {
+                seconds--;
+                countdownElement.textContent = seconds;
+
+                if (seconds <= 0) {
+                    clearInterval(interval);
+                    window.location.href = homeUrl;
+                }
+            }, 1000);
+        })();
+    </script>
+
+</body>
+</html>
