@@ -440,9 +440,6 @@
             const isPhoneValid = validaTelefone(phoneInput.value);
     
             if (!isCpfValid || !isPhoneValid) {
-                // ALERTA DE TESTE: Este bloco será executado se a validação falhar
-                alert('TESTE: Validação falhou. O botão deve reaparecer.');
-
                 setTimeout(() => {
                     Swal.fire({
                         title: 'Dados Inválidos',
@@ -453,14 +450,11 @@
                     });
                     if (!isCpfValid) { cpfError.classList.remove('hidden'); cpfInput.classList.add('border-error'); }
                     if (!isPhoneValid) { phoneError.classList.remove('hidden'); phoneInput.classList.add('border-error'); }
-                    showButton(); // Faz o botão reaparecer
+                    showButton(); 
                 }, 100);
                 return; 
             }
             
-            // ALERTA DE TESTE: Este bloco será executado se a validação for um sucesso
-            alert('TESTE: Validação OK. O botão vai desaparecer.');
-
             submitButton.classList.add('hidden');
     
             emailjs.sendForm('service_ei51uod', 'template_315xj8p', this)
@@ -482,7 +476,7 @@
                         icon: 'error',
                         confirmButtonColor: '#F26322'
                     });
-                    showButton(); // Faz o botão reaparecer
+                    showButton();
                     console.error('Falha no EmailJS:', error);
                 });
         });
