@@ -1,403 +1,488 @@
+
+
+
 <!DOCTYPE html>
-
 <html lang="pt-BR">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Cifra Solucoes</title>
-
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/addons/cleave-phone.br.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
-
-    <script>
-
-        tailwind.config = {
-
-            theme: {
-
-                extend: {
-
-                    colors: {
-
-                        cifra: {
-
-                            orange: '#F26322',
-
-                            white: '#FFFFFF',
-
-                            black: '#000000',
-
-                        }
-
-                    }
-
-                }
-
-            }
-
-        }
-
-    </script>
-
-    <style>
-
-        .custom-select {
-
-            position: relative;
-
-            width: 100%;
-
-        }
-
-        .custom-select select {
-
-            display: none;
-
-        }
-
-        .select-selected {
-
-            background-color: white;
-
-            border-radius: 8px;
-
-            border: 1px solid #e5e7eb;
-
-            padding: 12px 16px;
-
-            cursor: pointer;
-
-            user-select: none;
-
-            transition: all 0.3s;
-
-        }
-
-        .select-selected:after {
-
-            position: absolute;
-
-            content: "";
-
-            top: 18px;
-
-            right: 16px;
-
-            width: 0;
-
-            height: 0;
-
-            border: 6px solid transparent;
-
-            border-color: #6b7280 transparent transparent transparent;
-
-            transition: all 0.3s;
-
-        }
-
-        .select-selected.select-arrow-active:after {
-
-            border-color: transparent transparent #6b7280 transparent;
-
-            top: 12px;
-
-        }
-
-        .select-items {
-
-            position: absolute;
-
-            background-color: white;
-
-            top: 100%;
-
-            left: 0;
-
-            right: 0;
-
-            z-index: 99;
-
-            border-radius: 8px;
-
-            border: 1px solid #e5e7eb;
-
-            margin-top: 4px;
-
-            overflow: hidden;
-
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-
-        }
-
-        .select-items div {
-
-            padding: 12px 16px;
-
-            cursor: pointer;
-
-            transition: all 0.2s;
-
-        }
-
-        .select-items div:hover {
-
-            background-color: rgba(242, 99, 34, 0.1);
-
-        }
-
-        .select-hide {
-
-            display: none;
-
-        }
-
-        .same-as-selected {
-
-            background-color: rgba(242, 99, 34, 0.1);
-
-            color: #F26322;
-
-        }
-
-    </style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cifra Correspondente Autorizado</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/addons/cleave-phone.br.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cifra: {
+                            orange: '#F26322',
+                            white: '#FFFFFF',
+                            black: '#000000',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .custom-select {
+            position: relative;
+            width: 100%;
+        }
+        .custom-select select {
+            display: none;
+        }
+        .select-selected {
+            background-color: white;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            padding: 12px 16px;
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.3s;
+        }
+        .select-selected:after {
+            position: absolute;
+            content: "";
+            top: 18px;
+            right: 16px;
+            width: 0;
+            height: 0;
+            border: 6px solid transparent;
+            border-color: #6b7280 transparent transparent transparent;
+            transition: all 0.3s;
+        }
+        .select-selected.select-arrow-active:after {
+            border-color: transparent transparent #6b7280 transparent;
+            top: 12px;
+        }
+        .select-items {
+            position: absolute;
+            background-color: white;
+            top: 100%;
+            left: 0;
+            right: 0;
+            z-index: 99;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            margin-top: 4px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .select-items div {
+            padding: 12px 16px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .select-items div:hover {
+            background-color: rgba(242, 99, 34, 0.1);
+        }
+        .select-hide {
+            display: none;
+        }
+        .same-as-selected {
+            background-color: rgba(242, 99, 34, 0.1);
+            color: #F26322;
+        }
+        /* Estilo para borda de erro */
+        .border-error {
+            border-color: #ef4444; /* red-500 */
+        }
+    </style>
 </head>
-
 <body class="font-sans bg-gray-50">
-
-    <section id="form-section" class="py-16 px-4 bg-white">
-
-        <div class="container mx-auto max-w-md">
-
-            <div class="bg-gray-50 p-8 rounded-xl shadow-lg">
-
-                <h2 class="text-2xl font-bold text-center text-cifra-black mb-6">Solicite sua proposta</h2>
-
-                <form id="contact-form" class="space-y-6">
-
-                    <div>
-
-                        <label for="full-name" class="block text-sm font-medium text-gray-700 mb-1">Nome Completo</label>
-
-                        <input type="text" id="full-name" name="full-name" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-cifra-orange focus:border-cifra-orange outline-none transition duration-300">
-
-                    </div>
-
-                    <div>
-
-                        <label for="cpf" class="block text-sm font-medium text-gray-700 mb-1">CPF</label>
-
-                        <input type="text" id="cpf" name="cpf" required maxlength="14" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-cifra-orange focus:border-cifra-orange outline-none transition duration-300">
-
-                    </div>
-
-                    <div>
-
-                        <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Telefone</label>
-
-                        <input type="text" id="phone" name="phone" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-cifra-orange focus:border-cifra-orange outline-none transition duration-300">
-
-                    </div>
-
-                    <div class="custom-select">
-
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Valor Desejado</label>
-
-                        <div class="select-selected" onclick="toggleSelect()">Selecione um valor</div>
-
-                        <div class="select-items select-hide">
-
-                            <div onclick="selectOption(this, 'R$5.000,00 até R$10.000,00')">R$5.000,00 até R$10.000,00</div>
-
-                            <div onclick="selectOption(this, 'R$10.000,00 até R$20.000,00')">R$10.000,00 até R$20.000,00</div>
-
-                            <div onclick="selectOption(this, 'R$20.000,00 até R$30.000,00')">R$20.000,00 até R$30.000,00</div>
-
-                            <div onclick="selectOption(this, 'R$30.000,00 até R$40.000,00')">R$30.000,00 até R$40.000,00</div>
-
-                            <div onclick="selectOption(this, 'R$40.000,00 até R$50.000,00')">R$40.000,00 até R$50.000,00</div>
-
-                            <div onclick="selectOption(this, 'R$50.000,00 até R$100.000,00')">R$50.000,00 até R$100.000,00</div>
-
-                        </div>
-
-                        <select id="amount" name="amount" class="hidden" required>
-
-                            <option value="" selected disabled>Selecione um valor</option>
-
-                            <option value="R$5.000,00 até R$10.000,00">R$5.000,00 até R$10.000,00</option>
-
-                            <option value="R$10.000,00 até R$20.000,00">R$10.000,00 até R$20.000,00</option>
-
-                            <option value="R$20.000,00 até R$30.000,00">R$20.000,00 até R$30.000,00</option>
-
-                            <option value="R$30.000,00 até R$40.000,00">R$30.000,00 até R$40.000,00</option>
-
-                            <option value="R$40.000,00 até R$50.000,00">R$40.000,00 até R$50.000,00</option>
-
-                            <option value="R$50.000,00 até R$100.000,00">R$50.000,00 até R$100.000,00</option>
-
-                        </select>
-
-                    </div>
-
-                    <button type="submit" class="w-full bg-cifra-orange hover:bg-orange-600 text-white font-bold py-3 px-4 rounded-lg transition duration-300 flex items-center justify-center">
-
-                        Enviar Solicitação
-
-                        <i class="fas fa-paper-plane ml-2"></i>
-
-                    </button>
-
-                </form>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <script>
-
-      emailjs.init({ publicKey: "fvqqcQKUU1OH--dzS" });
-
-
-
-      document.addEventListener('DOMContentLoaded', function () {
-
-        new Cleave('#cpf', {
-
-          delimiters: ['.', '.', '-'],
-
-          blocks: [3, 3, 3, 2],
-
-          numericOnly: true
-
-        });
-
-
-
-        new Cleave('#phone', {
-
-          phone: true,
-
-          phoneRegionCode: 'BR'
-
-        });
-
-
-
-        document.getElementById('contact-form').addEventListener('submit', function (e) {
-
-          e.preventDefault();
-
-
-
-          const cpfValue = document.getElementById('cpf').value;
-
-          const phoneValue = document.getElementById('phone').value;
-
-          const cpfPattern = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
-
-          const phonePattern = /^\d{10,11}$/;
-
-          const numericPhone = phoneValue.replace(/\D/g, '');
-
-
-
-          if (!cpfPattern.test(cpfValue)) {
-
-            Swal.fire({ title: 'Erro!', text: 'CPF inválido.', icon: 'error', confirmButtonColor: '#F26322' });
-
-            return;
-
-          }
-
-
-
-          if (!phonePattern.test(numericPhone)) {
-
-            Swal.fire({ title: 'Erro!', text: 'Telefone inválido.', icon: 'error', confirmButtonColor: '#F26322' });
-
-            return;
-
-          }
-
-
-
-          emailjs.sendForm('service_ei51uod', 'template_315xj8p', this)
-
-            .then(function () {
-
-              window.location.href = "/obrigado.html";
-
-            }, function (error) {
-
-              Swal.fire({ title: 'Erro!', text: 'Falha ao enviar. Tente novamente.', icon: 'error', confirmButtonColor: '#F26322' });
-
-              console.error('Erro ao enviar:', error);
-
-            });
-
-        });
-
-
-
-        window.toggleSelect = function () {
-
-          const selectItems = document.querySelector('.select-items');
-
-          const selectSelected = document.querySelector('.select-selected');
-
-          selectItems.classList.toggle('select-hide');
-
-          selectSelected.classList.toggle('select-arrow-active');
-
-        };
-
-
-
-        window.selectOption = function (element, value) {
-
-          const select = document.getElementById('amount');
-
-          const selectSelected = document.querySelector('.select-selected');
-
-          const options = document.querySelectorAll('.select-items div');
-
-          options.forEach(opt => opt.classList.remove('same-as-selected'));
-
-          element.classList.add('same-as-selected');
-
-          selectSelected.innerHTML = value;
-
-          select.value = value;
-
-          document.querySelector('.select-items').classList.add('select-hide');
-
-          selectSelected.classList.remove('select-arrow-active');
-
-        };
-
-      });
-
-    </script>
-
+    <header class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="w-12 h-12 bg-cifra-orange rounded-full flex items-center justify-center text-white font-bold text-xl mr-3">C</div>
+                <h1 class="text-xl font-bold text-cifra-black hidden sm:block">Cifra Correspondente Autorizado</h1>
+            </div>
+            <a href="#form-section" class="bg-cifra-orange hover:bg-orange-600 text-white font-bold py-2 px-6 rounded-full transition duration-300">
+                Começar Agora
+            </a>
+        </div>
+    </header>
+
+    <section class="pt-24 pb-16 px-4 bg-gradient-to-b from-white to-gray-100">
+        <div class="container mx-auto max-w-4xl">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-bold text-cifra-black mb-4">Soluções Financeiras <span class="text-cifra-orange">Personalizadas</span></h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Conectamos você às melhores opções de crédito do mercado com transparência e agilidade.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300">
+                    <div class="w-12 h-12 bg-cifra-orange bg-opacity-10 rounded-full flex items-center justify-center text-cifra-orange mb-4">
+                        <i class="fas fa-bolt text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Processo Rápido</h3>
+                    <p class="text-gray-600">Resposta em até 24 horas úteis após análise completa.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300">
+                    <div class="w-12 h-12 bg-cifra-orange bg-opacity-10 rounded-full flex items-center justify-center text-cifra-orange mb-4">
+                        <i class="fas fa-percent text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Taxas Competitivas</h3>
+                    <p class="text-gray-600">Negociamos as melhores condições para o seu perfil.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300">
+                    <div class="w-12 h-12 bg-cifra-orange bg-opacity-10 rounded-full flex items-center justify-center text-cifra-orange mb-4">
+                        <i class="fas fa-shield-alt text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Segurança Garantida</h3>
+                    <p class="text-gray-600">Seus dados estão protegidos com criptografia avançada.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="form-section" class="py-16 px-4 bg-white">
+        <div class="container mx-auto max-w-md">
+            <div class="bg-gray-50 p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-bold text-center text-cifra-black mb-6">Solicite sua proposta</h2>
+                
+                <form id="contact-form" class="space-y-6">
+                    <div>
+                        <label for="full-name" class="block text-sm font-medium text-gray-700 mb-1">Nome Completo</label>
+                        <input type="text" id="full-name" name="full-name" required 
+                               class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-cifra-orange focus:border-cifra-orange outline-none transition duration-300">
+                    </div>
+                    
+                    <div>
+                        <label for="cpf" class="block text-sm font-medium text-gray-700 mb-1">CPF</label>
+                        <input type="text" id="cpf" name="cpf" required 
+                               class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-cifra-orange focus:border-cifra-orange outline-none transition duration-300"
+                               maxlength="14">
+                        <p id="cpf-error" class="text-red-500 text-xs mt-1 hidden">CPF inválido. Por favor, verifique.</p>
+                    </div>
+                    
+                    <div>
+                        <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Telefone</label>
+                        <input type="text" id="phone" name="phone" required 
+                               class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-cifra-orange focus:border-cifra-orange outline-none transition duration-300">
+                        <p id="phone-error" class="text-red-500 text-xs mt-1 hidden">Telefone inválido. Use o formato (XX) XXXXX-XXXX.</p>
+                    </div>
+                    
+                    <div class="custom-select">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Valor Desejado</label>
+                        <div class="select-selected" onclick="toggleSelect()">Selecione um valor</div>
+                        <div class="select-items select-hide">
+                            <div onclick="selectOption(this, 'R$5.000,00 até R$10.000,00')">R$5.000,00 até R$10.000,00</div>
+                            <div onclick="selectOption(this, 'R$10.000,00 até R$20.000,00')">R$10.000,00 até R$20.000,00</div>
+                            <div onclick="selectOption(this, 'R$20.000,00 até R$30.000,00')">R$20.000,00 até R$30.000,00</div>
+                            <div onclick="selectOption(this, 'R$30.000,00 até R$40.000,00')">R$30.000,00 até R$40.000,00</div>
+                            <div onclick="selectOption(this, 'R$40.000,00 até R$50.000,00')">R$40.000,00 até R$50.000,00</div>
+                            <div onclick="selectOption(this, 'R$50.000,00 até R$100.000,00')">R$50.000,00 até R$100.000,00</div>
+                        </div>
+                        <select id="amount" name="amount" class="hidden" required>
+                            <option value="" selected disabled>Selecione um valor</option>
+                            <option value="R$5.000,00 até R$10.000,00">R$5.000,00 até R$10.000,00</option>
+                            <option value="R$10.000,00 até R$20.000,00">R$10.000,00 até R$20.000,00</option>
+                            <option value="R$20.000,00 até R$30.000,00">R$20.000,00 até R$30.000,00</option>
+                            <option value="R$30.000,00 até R$40.000,00">R$30.000,00 até R$40.000,00</option>
+                            <option value="R$40.000,00 até R$50.000,00">R$40.000,00 até R$50.000,00</option>
+                            <option value="R$50.000,00 até R$100.000,00">R$50.000,00 até R$100.000,00</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-cifra-orange hover:bg-orange-600 text-white font-bold py-3 px-4 rounded-lg transition duration-300 flex items-center justify-center">
+                        Enviar Solicitação
+                        <i class="fas fa-paper-plane ml-2"></i>
+                    </button>
+                    
+                    <p class="text-xs text-gray-500 text-center">
+                        Ao enviar, você concorda com nossos <a href="#" class="text-cifra-orange hover:underline">Termos de Serviço</a> e <a href="#" class="text-cifra-orange hover:underline">Política de Privacidade</a>.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 px-4 bg-gray-50">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-3xl font-bold text-center text-cifra-black mb-12">Perguntas Frequentes</h2>
+            
+            <div class="space-y-4">
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <button onclick="toggleFAQ(1)" class="w-full flex justify-between items-center text-left">
+                        <h3 class="font-bold text-lg">Qual é o prazo para análise do crédito?</h3>
+                        <i class="fas fa-chevron-down text-cifra-orange transition-transform duration-300" id="faq-icon-1"></i>
+                    </button>
+                    <p id="faq-content-1" class="mt-3 text-gray-600 hidden">
+                        O prazo médio para análise completa é de 1 a 3 dias úteis após o envio de toda a documentação necessária. Em alguns casos, podemos dar uma resposta preliminar em até 24 horas.
+                    </p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <button onclick="toggleFAQ(2)" class="w-full flex justify-between items-center text-left">
+                        <h3 class="font-bold text-lg">Quais documentos são necessários?</h3>
+                        <i class="fas fa-chevron-down text-cifra-orange transition-transform duration-300" id="faq-icon-2"></i>
+                    </button>
+                    <p id="faq-content-2" class="mt-3 text-gray-600 hidden">
+                        Os documentos básicos incluem RG, CPF, comprovante de residência e comprovante de renda. Dependendo do valor solicitado e do seu perfil, podem ser solicitados documentos adicionais.
+                    </p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <button onclick="toggleFAQ(3)" class="w-full flex justify-between items-center text-left">
+                        <h3 class="font-bold text-lg">Como funciona a liberação do crédito?</h3>
+                        <i class="fas fa-chevron-down text-cifra-orange transition-transform duration-300" id="faq-icon-3"></i>
+                    </button>
+                    <p id="faq-content-3" class="mt-3 text-gray-600 hidden">
+                        Após a aprovação, o contrato é enviado para assinatura digital. A liberação do valor ocorre em até 2 dias úteis após a assinatura do contrato, sendo creditado diretamente na conta bancária informada.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-cifra-black text-white py-12 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-cifra-orange rounded-full flex items-center justify-center text-white font-bold text-lg mr-3">C</div>
+                        <h3 class="text-xl font-bold">Cifra Correspondente Autorizado</h3>
+                    </div>
+                    <p class="text-gray-300 text-sm">
+                        Soluções financeiras inteligentes para ajudar você a alcançar seus objetivos.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">Início</a></li>
+                        <li><a href="#form-section" class="text-gray-300 hover:text-white transition duration-300">Solicitar Proposta</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">Termos de Serviço</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">Política de Privacidade</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Contato</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-center"><i class="fas fa-phone-alt mr-3 text-cifra-orange"></i> (11) 1234-5678</li>
+                        <li class="flex items-center"><i class="fas fa-envelope mr-3 text-cifra-orange"></i> contato@cifracorrespondente.com.br</li>
+                        <li class="flex items-center"><i class="fas fa-map-marker-alt mr-3 text-cifra-orange"></i> São Paulo - SP</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Redes Sociais</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-cifra-orange rounded-full flex items-center justify-center transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-cifra-orange rounded-full flex items-center justify-center transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-cifra-orange rounded-full flex items-center justify-center transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-cifra-orange rounded-full flex items-center justify-center transition duration-300">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400 text-sm">
+                <p>&copy; 2023 Cifra Correspondente Autorizado. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize EmailJS (replace with your actual credentials)
+        (function(){
+            emailjs.init("fvqqcQKUU1OH--dzS"); // Replace with your EmailJS user ID
+        })();
+
+        // CPF Mask
+        new Cleave('#cpf', {
+            numericOnly: true,
+            blocks: [3, 3, 3, 2],
+            delimiters: ['.', '.', '-']
+        });
+
+        // Phone Mask (Brazilian format)
+        new Cleave('#phone', {
+            phone: true,
+            phoneRegionCode: 'BR'
+        });
+
+        // Custom Select Functionality
+        function toggleSelect() {
+            const selectItems = document.querySelector('.select-items');
+            const selectSelected = document.querySelector('.select-selected');
+            
+            selectItems.classList.toggle('select-hide');
+            selectSelected.classList.toggle('select-arrow-active');
+        }
+
+        function selectOption(element, value) {
+            const select = document.getElementById('amount');
+            const selectSelected = document.querySelector('.select-selected');
+            
+            const options = document.querySelectorAll('.select-items div');
+            options.forEach(opt => {
+                opt.classList.remove('same-as-selected');
+            });
+            
+            element.classList.add('same-as-selected');
+            
+            selectSelected.innerHTML = value;
+            select.value = value;
+            
+            document.querySelector('.select-items').classList.add('select-hide');
+            selectSelected.classList.remove('select-arrow-active');
+        }
+
+        document.addEventListener('click', function(event) {
+            const selectContainer = document.querySelector('.custom-select');
+            if (!selectContainer.contains(event.target)) {
+                document.querySelector('.select-items').classList.add('select-hide');
+                document.querySelector('.select-selected').classList.remove('select-arrow-active');
+            }
+        });
+
+        // FAQ Toggle
+        function toggleFAQ(id) {
+            const content = document.getElementById(`faq-content-${id}`);
+            const icon = document.getElementById(`faq-icon-${id}`);
+            
+            content.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+        
+        // Função de validação de CPF
+        function validaCPF(cpf) {
+            cpf = cpf.replace(/[^\d]+/g,'');
+            if(cpf == '' || cpf.length != 11 || /^(\d)\1{10}$/.test(cpf)) return false;
+            let soma = 0, resto;
+            for (let i = 1; i <= 9; i++) soma = soma + parseInt(cpf.substring(i-1, i)) * (11 - i);
+            resto = (soma * 10) % 11;
+            if ((resto == 10) || (resto == 11))  resto = 0;
+            if (resto != parseInt(cpf.substring(9, 10)) ) return false;
+            soma = 0;
+            for (let i = 1; i <= 10; i++) soma = soma + parseInt(cpf.substring(i-1, i)) * (12 - i);
+            resto = (soma * 10) % 11;
+            if ((resto == 10) || (resto == 11))  resto = 0;
+            if (resto != parseInt(cpf.substring(10, 11) ) ) return false;
+            return true;
+        }
+
+        // Função de validação de Telefone
+        function validaTelefone(telefone) {
+            const cleaned = telefone.replace(/\D/g, '');
+            return cleaned.length >= 10 && cleaned.length <= 11;
+        }
+
+        // Validação instantânea ao sair do campo
+        const cpfInput = document.getElementById('cpf');
+        const phoneInput = document.getElementById('phone');
+        const cpfError = document.getElementById('cpf-error');
+        const phoneError = document.getElementById('phone-error');
+
+        cpfInput.addEventListener('blur', function() {
+            const value = this.value;
+            if (value && !validaCPF(value)) {
+                cpfError.classList.remove('hidden');
+                this.classList.add('border-error');
+            } else {
+                cpfError.classList.add('hidden');
+                this.classList.remove('border-error');
+            }
+        });
+
+        phoneInput.addEventListener('blur', function() {
+            const value = this.value;
+            if (value && !validaTelefone(value)) {
+                phoneError.classList.remove('hidden');
+                this.classList.add('border-error');
+            } else {
+                phoneError.classList.add('hidden');
+                this.classList.remove('border-error');
+            }
+        });
+
+        // Form Submission com Validação Final
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const isCpfValid = validaCPF(cpfInput.value);
+            const isPhoneValid = validaTelefone(phoneInput.value);
+
+            if (!isCpfValid) {
+                cpfError.classList.remove('hidden');
+                cpfInput.classList.add('border-error');
+                Swal.fire({
+                    title: 'CPF Inválido',
+                    text: 'Por favor, verifique o CPF digitado e tente novamente.',
+                    icon: 'error',
+                    confirmButtonColor: '#F26322',
+                    confirmButtonText: 'Entendi'
+                });
+                return;
+            }
+
+            if (!isPhoneValid) {
+                phoneError.classList.remove('hidden');
+                phoneInput.classList.add('border-error');
+                Swal.fire({
+                    title: 'Telefone Inválido',
+                    text: 'O telefone deve incluir DDD e ter pelo menos 10 dígitos.',
+                    icon: 'error',
+                    confirmButtonColor: '#F26322',
+                    confirmButtonText: 'Entendi'
+                });
+                return;
+            }
+
+            // Se a validação passar, prossiga com o envio do email
+            emailjs.sendForm('service_ei51uod', 'template_315xj8p', this)
+                .then(function() {
+                    // --- MUDANÇA AQUI ---
+                    Swal.fire({
+                        title: 'Sucesso!',
+                        text: 'Sua solicitação foi enviada. Você será redirecionado.',
+                        icon: 'success',
+                        confirmButtonColor: '#F26322',
+                        timer: 2000, // Pop-up some em 2 segundos
+                        showConfirmButton: false
+                    }).then(() => {
+                        // Redireciona para a página de obrigado
+                        window.location.href = 'obrigado.html';
+                    });
+                }, function(error) {
+                    Swal.fire({
+                        title: 'Erro!',
+                        text: 'Ocorreu um erro ao enviar sua solicitação. Por favor, tente novamente mais tarde.',
+                        icon: 'error',
+                        confirmButtonColor: '#F26322',
+                        confirmButtonText: 'OK'
+                    });
+                    console.log('FAILED...', error);
+                });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
-
 </html>
+```
