@@ -1,16 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-   <script>
-!function(e,t){"object"==typeof exports&&"object"==typeof module?module.exports=t():"function"==typeof define&&define.amd?define([],t):"object"==typeof exports?exports.install=t():e.install=t()}("undefined"!=typeof window?window:self,(function(){return function(e){var t={};function n(o){if(t[o])return t[o].exports;var r=t[o]={i:o,l:!1,exports:{}};return e[o].call(r.exports,r,r.exports,n),r.l=!0,r.exports}return n.m=e,n.c=t,n.d=function(e,t,o){n.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:o})},n.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},n.t=function(e,t){if(1&t&&(e=n(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var o=Object.create(null);if(n.r(o),Object.defineProperty(o,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var r in e)n.d(o,r,function(t){return e[t]}.bind(null,r));return o},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="",n(n.s=72)}({72:function(e,t,n){"use strict";var o=this&&this.__spreadArray||function(e,t,n){if(n||2===arguments.length)for(var o,r=0,i=t.length;r<i;r++)!o&&r in t||(o||(o=Array.prototype.slice.call(t,0,r)),o[r]=t[r]);return e.concat(o||Array.prototype.slice.call(t))};Object.defineProperty(t,"__esModule",{value:!0});var r=function(e,t,n){var o,i=e.createElement("script");i.type="text/javascript",i.async=!0,i.src=t,n&&(i.onerror=function(){r(e,n)});var a=e.getElementsByTagName("script")[0];null===(o=a.parentNode)||void 0===o||o.insertBefore(i,a)};!function(e,t,n){e.KwaiAnalyticsObject=n;var i=e[n]=e[n]||[];i.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"];var a=function(e,t){e[t]=function(){for(var n=[],r=0;r<arguments.length;r++)n[r]=arguments[r];var i=o([t],n,!0);e.push(i)}};i.methods.forEach((function(e){a(i,e)})),i.instance=function(e){var t,n=(null===(t=i._i)||void 0===t?void 0:t[e])||[];return i.methods.forEach((function(e){a(n,e)})),n},i.load=function(e,o){var a="https://s21-def.ap4r.com/kos/s101/nlav112572/pixel/events.js";i._i=i._i||{},i._i[e]=[],i._i[e]._u=a,i._t=i._t||{},i._t[e]=+new Date,i._o=i._o||{},i._o[e]=o||{};var c="?sdkid=".concat(e,"&lib=").concat(n);r(t,a+c,"https://s21-def.ks-la.net/kos/s101/nlav112572/pixel/events.js"+c)}}(window,document,"kwaiq")}})}));
-</script>
-<script>
-kwaiq.load('286343624982321');
-kwaiq.page();
-kwaiq.track('completeRegistration')
-</script>
-   
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cifra Correspondente Autorizado</title>
@@ -95,9 +85,8 @@ kwaiq.track('completeRegistration')
             background-color: rgba(242, 99, 34, 0.1);
             color: #F26322;
         }
-        /* Estilo para borda de erro */
         .border-error {
-            border-color: #ef4444; /* red-500 */
+            border-color: #ef4444;
         }
     </style>
 </head>
@@ -178,14 +167,14 @@ kwaiq.track('completeRegistration')
                     
                     <div class="custom-select">
                         <label class="block text-sm font-medium text-gray-700 mb-1">Valor Desejado</label>
-                        <div class="select-selected" onclick="toggleSelect()">Selecione um valor</div>
+                        <div class="select-selected">Selecione um valor</div>
                         <div class="select-items select-hide">
-                            <div onclick="selectOption(this, 'R$5.000,00 até R$10.000,00')">R$5.000,00 até R$10.000,00</div>
-                            <div onclick="selectOption(this, 'R$10.000,00 até R$20.000,00')">R$10.000,00 até R$20.000,00</div>
-                            <div onclick="selectOption(this, 'R$20.000,00 até R$30.000,00')">R$20.000,00 até R$30.000,00</div>
-                            <div onclick="selectOption(this, 'R$30.000,00 até R$40.000,00')">R$30.000,00 até R$40.000,00</div>
-                            <div onclick="selectOption(this, 'R$40.000,00 até R$50.000,00')">R$40.000,00 até R$50.000,00</div>
-                            <div onclick="selectOption(this, 'R$50.000,00 até R$100.000,00')">R$50.000,00 até R$100.000,00</div>
+                            <div data-value="R$5.000,00 até R$10.000,00">R$5.000,00 até R$10.000,00</div>
+                            <div data-value="R$10.000,00 até R$20.000,00">R$10.000,00 até R$20.000,00</div>
+                            <div data-value="R$20.000,00 até R$30.000,00">R$20.000,00 até R$30.000,00</div>
+                            <div data-value="R$30.000,00 até R$40.000,00">R$30.000,00 até R$40.000,00</div>
+                            <div data-value="R$40.000,00 até R$50.000,00">R$40.000,00 até R$50.000,00</div>
+                            <div data-value="R$50.000,00 até R$100.000,00">R$50.000,00 até R$100.000,00</div>
                         </div>
                         <select id="amount" name="amount" class="hidden" required>
                             <option value="" selected disabled>Selecione um valor</option>
@@ -217,31 +206,31 @@ kwaiq.track('completeRegistration')
             
             <div class="space-y-4">
                 <div class="bg-white p-6 rounded-xl shadow-sm">
-                    <button onclick="toggleFAQ(1)" class="w-full flex justify-between items-center text-left">
+                    <button class="faq-toggle w-full flex justify-between items-center text-left">
                         <h3 class="font-bold text-lg">Qual é o prazo para análise do crédito?</h3>
-                        <i class="fas fa-chevron-down text-cifra-orange transition-transform duration-300" id="faq-icon-1"></i>
+                        <i class="fas fa-chevron-down text-cifra-orange transition-transform duration-300"></i>
                     </button>
-                    <p id="faq-content-1" class="mt-3 text-gray-600 hidden">
+                    <p class="faq-content mt-3 text-gray-600 hidden">
                         O prazo médio para análise completa é de 1 a 3 dias úteis após o envio de toda a documentação necessária. Em alguns casos, podemos dar uma resposta preliminar em até 24 horas.
                     </p>
                 </div>
                 
                 <div class="bg-white p-6 rounded-xl shadow-sm">
-                    <button onclick="toggleFAQ(2)" class="w-full flex justify-between items-center text-left">
+                    <button class="faq-toggle w-full flex justify-between items-center text-left">
                         <h3 class="font-bold text-lg">Quais documentos são necessários?</h3>
-                        <i class="fas fa-chevron-down text-cifra-orange transition-transform duration-300" id="faq-icon-2"></i>
+                        <i class="fas fa-chevron-down text-cifra-orange transition-transform duration-300"></i>
                     </button>
-                    <p id="faq-content-2" class="mt-3 text-gray-600 hidden">
+                    <p class="faq-content mt-3 text-gray-600 hidden">
                         Os documentos básicos incluem RG, CPF, comprovante de residência e comprovante de renda. Dependendo do valor solicitado e do seu perfil, podem ser solicitados documentos adicionais.
                     </p>
                 </div>
                 
                 <div class="bg-white p-6 rounded-xl shadow-sm">
-                    <button onclick="toggleFAQ(3)" class="w-full flex justify-between items-center text-left">
+                    <button class="faq-toggle w-full flex justify-between items-center text-left">
                         <h3 class="font-bold text-lg">Como funciona a liberação do crédito?</h3>
-                        <i class="fas fa-chevron-down text-cifra-orange transition-transform duration-300" id="faq-icon-3"></i>
+                        <i class="fas fa-chevron-down text-cifra-orange transition-transform duration-300"></i>
                     </button>
-                    <p id="faq-content-3" class="mt-3 text-gray-600 hidden">
+                    <p class="faq-content mt-3 text-gray-600 hidden">
                         Após a aprovação, o contrato é enviado para assinatura digital. A liberação do valor ocorre em até 2 dias úteis após a assinatura do contrato, sendo creditado diretamente na conta bancária informada.
                     </p>
                 </div>
@@ -309,98 +298,110 @@ kwaiq.track('completeRegistration')
     <script>
         // Initialize EmailJS (replace with your actual credentials)
         (function(){
-            emailjs.init("fvqqcQKUU1OH--dzS"); // Replace with your EmailJS user ID
+            emailjs.init("fvqqcQKUU1OH--dzS"); // Substitua pelo seu User ID do EmailJS
         })();
-
-        // CPF Mask
+    
+        // ----- VARIÁVEL DE CONTROLE DE ENVIO -----
+        let isSubmitting = false;
+    
+        // Máscaras de campo
         new Cleave('#cpf', {
             numericOnly: true,
             blocks: [3, 3, 3, 2],
             delimiters: ['.', '.', '-']
         });
-
-        // Phone Mask (Brazilian format)
+    
         new Cleave('#phone', {
             phone: true,
             phoneRegionCode: 'BR'
         });
-
-        // Custom Select Functionality
-        function toggleSelect() {
-            const selectItems = document.querySelector('.select-items');
-            const selectSelected = document.querySelector('.select-selected');
-            
-            selectItems.classList.toggle('select-hide');
+    
+        // --- LÓGICA DO SELECT CUSTOMIZADO ---
+        const selectContainer = document.querySelector('.custom-select');
+        const selectSelected = selectContainer.querySelector('.select-selected');
+        const selectItemsContainer = selectContainer.querySelector('.select-items');
+        const nativeSelect = selectContainer.querySelector('select');
+    
+        selectSelected.addEventListener('click', () => {
+            if(isSubmitting) return;
+            selectItemsContainer.classList.toggle('select-hide');
             selectSelected.classList.toggle('select-arrow-active');
-        }
-
-        function selectOption(element, value) {
-            const select = document.getElementById('amount');
-            const selectSelected = document.querySelector('.select-selected');
-            
-            const options = document.querySelectorAll('.select-items div');
-            options.forEach(opt => {
-                opt.classList.remove('same-as-selected');
+        });
+    
+        selectItemsContainer.querySelectorAll('div').forEach(optionDiv => {
+            optionDiv.addEventListener('click', () => {
+                if(isSubmitting) return;
+                
+                selectItemsContainer.querySelectorAll('div').forEach(opt => opt.classList.remove('same-as-selected'));
+                optionDiv.classList.add('same-as-selected');
+    
+                const value = optionDiv.getAttribute('data-value');
+                selectSelected.textContent = value;
+                nativeSelect.value = value;
+    
+                selectItemsContainer.classList.add('select-hide');
+                selectSelected.classList.remove('select-arrow-active');
             });
-            
-            element.classList.add('same-as-selected');
-            
-            selectSelected.innerHTML = value;
-            select.value = value;
-            
-            document.querySelector('.select-items').classList.add('select-hide');
-            selectSelected.classList.remove('select-arrow-active');
-        }
-
+        });
+    
         document.addEventListener('click', function(event) {
-            const selectContainer = document.querySelector('.custom-select');
             if (!selectContainer.contains(event.target)) {
-                document.querySelector('.select-items').classList.add('select-hide');
-                document.querySelector('.select-selected').classList.remove('select-arrow-active');
+                selectItemsContainer.classList.add('select-hide');
+                selectSelected.classList.remove('select-arrow-active');
             }
         });
-
-        // FAQ Toggle
-        function toggleFAQ(id) {
-            const content = document.getElementById(`faq-content-${id}`);
-            const icon = document.getElementById(`faq-icon-${id}`);
-            
-            content.classList.toggle('hidden');
-            icon.classList.toggle('rotate-180');
-        }
-        
-        // Função de validação de CPF
+    
+        // --- LÓGICA DO FAQ ---
+        document.querySelectorAll('.faq-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                if(isSubmitting) return;
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                content.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+    
+        // --- FUNÇÕES DE VALIDAÇÃO ---
         function validaCPF(cpf) {
             cpf = cpf.replace(/[^\d]+/g,'');
             if(cpf == '' || cpf.length != 11 || /^(\d)\1{10}$/.test(cpf)) return false;
             let soma = 0, resto;
             for (let i = 1; i <= 9; i++) soma = soma + parseInt(cpf.substring(i-1, i)) * (11 - i);
             resto = (soma * 10) % 11;
-            if ((resto == 10) || (resto == 11))  resto = 0;
-            if (resto != parseInt(cpf.substring(9, 10)) ) return false;
+            if ((resto == 10) || (resto == 11)) resto = 0;
+            if (resto != parseInt(cpf.substring(9, 10))) return false;
             soma = 0;
             for (let i = 1; i <= 10; i++) soma = soma + parseInt(cpf.substring(i-1, i)) * (12 - i);
             resto = (soma * 10) % 11;
-            if ((resto == 10) || (resto == 11))  resto = 0;
-            if (resto != parseInt(cpf.substring(10, 11) ) ) return false;
+            if ((resto == 10) || (resto == 11)) resto = 0;
+            if (resto != parseInt(cpf.substring(10, 11))) return false;
             return true;
         }
-
-        // Função de validação de Telefone
+    
         function validaTelefone(telefone) {
             const cleaned = telefone.replace(/\D/g, '');
             return cleaned.length >= 10 && cleaned.length <= 11;
         }
-
-        // Validação instantânea ao sair do campo
+    
+        // --- ELEMENTOS DO FORMULÁRIO ---
+        const form = document.getElementById('contact-form');
         const cpfInput = document.getElementById('cpf');
         const phoneInput = document.getElementById('phone');
         const cpfError = document.getElementById('cpf-error');
         const phoneError = document.getElementById('phone-error');
-
+        const submitButton = form.querySelector('button[type="submit"]');
+    
+        // --- FUNÇÃO PARA FAZER O BOTÃO REAPARECER ---
+        function showButton() {
+            isSubmitting = false;
+            submitButton.classList.remove('hidden');
+            submitButton.disabled = false;
+        }
+    
+        // --- VALIDAÇÃO EM TEMPO REAL (BLUR) ---
         cpfInput.addEventListener('blur', function() {
-            const value = this.value;
-            if (value && !validaCPF(value)) {
+            if (this.value && !validaCPF(this.value)) {
                 cpfError.classList.remove('hidden');
                 this.classList.add('border-error');
             } else {
@@ -408,10 +409,9 @@ kwaiq.track('completeRegistration')
                 this.classList.remove('border-error');
             }
         });
-
+    
         phoneInput.addEventListener('blur', function() {
-            const value = this.value;
-            if (value && !validaTelefone(value)) {
+            if (this.value && !validaTelefone(this.value)) {
                 phoneError.classList.remove('hidden');
                 this.classList.add('border-error');
             } else {
@@ -419,77 +419,71 @@ kwaiq.track('completeRegistration')
                 this.classList.remove('border-error');
             }
         });
-
-        // Form Submission com Validação Final
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
+    
+        // --- LÓGICA DE ENVIO DO FORMULÁRIO (SUBMIT) ---
+        form.addEventListener('submit', function(e) {
             e.preventDefault();
             
+            if (isSubmitting) {
+                return;
+            }
+            
+            isSubmitting = true;
+            submitButton.disabled = true; // Desabilita para segurança, mesmo que vá sumir
+    
             const isCpfValid = validaCPF(cpfInput.value);
             const isPhoneValid = validaTelefone(phoneInput.value);
-
-            if (!isCpfValid) {
-                cpfError.classList.remove('hidden');
-                cpfInput.classList.add('border-error');
-                Swal.fire({
-                    title: 'CPF Inválido',
-                    text: 'Por favor, verifique o CPF digitado e tente novamente.',
-                    icon: 'error',
-                    confirmButtonColor: '#F26322',
-                    confirmButtonText: 'Entendi'
-                });
-                return;
+    
+            if (!isCpfValid || !isPhoneValid) {
+                setTimeout(() => {
+                    Swal.fire({
+                        title: 'Dados Inválidos',
+                        text: 'Por favor, verifique os campos em vermelho.',
+                        icon: 'error',
+                        confirmButtonColor: '#F26322',
+                        confirmButtonText: 'Entendi'
+                    });
+                    if (!isCpfValid) { cpfError.classList.remove('hidden'); cpfInput.classList.add('border-error'); }
+                    if (!isPhoneValid) { phoneError.classList.remove('hidden'); phoneInput.classList.add('border-error'); }
+                    showButton(); // Faz o botão reaparecer
+                }, 100);
+                return; 
             }
-
-            if (!isPhoneValid) {
-                phoneError.classList.remove('hidden');
-                phoneInput.classList.add('border-error');
-                Swal.fire({
-                    title: 'Telefone Inválido',
-                    text: 'O telefone deve incluir DDD e ter pelo menos 10 dígitos.',
-                    icon: 'error',
-                    confirmButtonColor: '#F26322',
-                    confirmButtonText: 'Entendi'
-                });
-                return;
-            }
-
-            // Se a validação passar, prossiga com o envio do email
+            
+            // Se a validação passou, o botão desaparece.
+            submitButton.classList.add('hidden');
+    
             emailjs.sendForm('service_ei51uod', 'template_315xj8p', this)
                 .then(function() {
-                    // --- MUDANÇA AQUI ---
                     Swal.fire({
                         title: 'Sucesso!',
                         text: 'Sua solicitação foi enviada. Você será redirecionado.',
                         icon: 'success',
-                        confirmButtonColor: '#F26322',
-                        timer: 2000, // Pop-up some em 2 segundos
-                        showConfirmButton: false
+                        timer: 2000,
+                        showConfirmButton: false,
+                        allowOutsideClick: false
                     }).then(() => {
-                        // Redireciona para a página de obrigado
                         window.location.href = 'obrigado.html';
                     });
                 }, function(error) {
                     Swal.fire({
-                        title: 'Erro!',
-                        text: 'Ocorreu um erro ao enviar sua solicitação. Por favor, tente novamente mais tarde.',
+                        title: 'Erro de Envio!',
+                        text: 'Ocorreu uma falha ao enviar sua solicitação. Por favor, tente novamente.',
                         icon: 'error',
-                        confirmButtonColor: '#F26322',
-                        confirmButtonText: 'OK'
+                        confirmButtonColor: '#F26322'
                     });
-                    console.log('FAILED...', error);
+                    showButton(); // Faz o botão reaparecer
+                    console.error('Falha no EmailJS:', error);
                 });
         });
-
-        // Smooth scrolling for anchor links
+    
+        // --- SCROLL SUAVE PARA ÂNCORAS ---
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
             });
         });
     </script>
 </body>
 </html>
-```
