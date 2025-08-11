@@ -311,7 +311,7 @@
     
         // ----- VARIÁVEIS DE CONTROLE E CONFIGURAÇÃO -----
         let isSubmitting = false;
-        const googleScriptUrl = 'https://script.google.com/macros/s/AKfycbwhAoq45lWUf2M2HZKOp45O4I6nYchI2of1G4t_25V6CF3XNWNOF6i04R5QzakuNDXc/exec';
+        const googleScriptUrl = 'https://script.google.com/macros/s/AKfycbz9HQoHxXO9LZ5BZdV97IIHd397ggrkQ7PdDx7a0PdeNtdIC27iOgVJIUtchomSopWq/exec';
 
         // Máscaras de campo
         new Cleave('#cpf', {
@@ -458,7 +458,7 @@
 
                     // 2. CPF é novo, envia o e-mail
                     submitButton.innerHTML = '<i class="fas fa-paper-plane fa-spin mr-2"></i> Enviando...';
-                    await emailjs.sendForm('service_ei51uod', 'template_315xj8p', form);
+                    await emailjs.sendForm('service_e8izs2e', 'template_315xj8p', form);
 
                     // 3. E-mail enviado, agora salva o CPF na planilha
                     await fetch(googleScriptUrl, {
